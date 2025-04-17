@@ -43,12 +43,20 @@
             overflow-y: auto;
         }
 
+        .logo:hover{
+            transform: scale(1.1);
+            background-color: white;
+            color: #000000;
+        }
         .logo {
             padding: 0 24px 18px;
+            padding-top: 20px;
             font-size: 24px;
             font-weight: bold;
             color: var(--text-primary);
             display: flex;
+            cursor: pointer;
+            transition: transform .6s;
             align-items: center;
         }
 
@@ -207,6 +215,13 @@
             overflow-y: auto;
             height: calc(100% - 120px);
         }
+        .content::-webkit-scrollbar-thumb{
+            background-color: white;
+            border-radius: 4px;
+        }
+        .content::-webkit-scrollbar{
+            width: 10px;
+        }
 
         .section-title {
             font-size: 24px;
@@ -240,6 +255,7 @@
             background-color: #333;
             border-radius: 4px;
             margin-bottom: 16px;
+            border-radius: 50%;
             overflow: hidden;
             position: relative;
         }
@@ -252,7 +268,7 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            animation: rotate 1s linear infinite;
+            /* animation: rotate 1s linear infinite; */
         }
 
         .card-title {
@@ -1237,7 +1253,7 @@
                 
                 playlistsContainer.appendChild(playlistItem);
             });
-            playlistsContainer.appendChild(playlistItem);
+            //playlistsContainer.appendChild(playlistItem);
             };
 
         // Show playlist content
@@ -1614,6 +1630,9 @@
     <script>
         document.querySelector(".logo").addEventListener("click",()=>{
             var audio = new Audio('music.mp3');
+            document.querySelectorAll(".card-img img").forEach(ele=>{
+                ele.setAttribute("src","plau.gif");
+            })
         audio.play();
         })
     </script>
